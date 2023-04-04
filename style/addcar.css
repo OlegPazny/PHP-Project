@@ -1,0 +1,139 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: raleway;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+header{
+    background-color: #00B2FF;
+    margin-top: 25px;
+    padding-left:240px;
+    padding-right:240px;
+}
+.list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav a{
+    margin-right:80px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.account a{
+    margin-right:40px;
+}
+.account{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.form-section{
+    margin-right: 12%;
+    margin-left:12%;
+    margin-top:2%;
+    margin-bottom: 2%;
+}
+.form-container{
+    background-color: #f5f5f5;
+    padding:25px;
+    border-radius: 15px;
+}
+/* БЛОК С ФИЛЬТРАМИ */
+.clear{
+    display:flex;
+    flex-direction: row;
+    width:150px;
+    justify-content: space-around;
+}
+.search{
+    margin-left: 12%;
+    margin-right: 12%;
+}
+.filter-selection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    border:1px solid #bdbdbd;
+    width:250px;
+    /* height:30px; */
+    padding:6px;
+}
+.filter-selection h6, .check-elem h6{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+.filter-selection select{
+    display: block;
+    background-color: transparent;
+    border:none;
+    height:20px;
+    width:150px;
+}
+input{
+    background-color: transparent;
+    border:1px solid #bdbdbd;
+    width:145px;
+}
+.filters-row{
+    display: flex;
+    flex-direction: row;
+    width:57%;
+    justify-content: space-between;
+    margin-bottom:15px;
+}
+.btn-column{
+    display:flex;
+    height:70px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.photo-btn,.submit-btn{
+    height:30px;
+    width:264px;
+    font-weight: bold;
+    font-size:18px;
+    border-radius: 3px;
+}
+.photo-btn{
+    background-color: #f5f5f5;
+    border:1px solid #bdbdbd;
+    color:#767676;
+}
+.submit-btn{
+    background-color: #00A368;
+    border:1px solid #007D50;
+    color:white;
+}
+.description{
+    width:500px;
+    height:400px;
+}
+.message{
+    color:#951212;
+    font-size:15px;
+}
+.none{
+    display:none;
+}
+/* ФУТЕР */
+.foo{
+    background-color: #E7EDF3;
+    width:100%;
+    height:220px;
+}
+.foo h1{
+    color:white;
+}

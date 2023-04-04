@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: raleway;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.post-section{
+    margin-right:12%;
+    margin-left:12%;
+}
+.info-section h1{
+    font-size:48px;
+}
+.info-container h2{
+    font-size:36px;
+}
+.last-post-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: stretch;
+    height: 25%;
+}
+.info-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding:25px;
+    align-items: flex-end;
+}
+.post-txt h4{
+    color:black;
+    font-size:18px;
+}
+.saved-section, .my-post-section{
+    margin-right:12%;
+    margin-left:12%;
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    width:420px;
+    margin-bottom:15px;
+}
+.post *{
+    margin: 0;
+    padding: 0;
+}
+figure{
+    width:auto;
+    height:320px;
+    overflow: hidden;
+    margin: 0;
+}
+figure img{
+    display:block;
+    width: 100%;
+}
+.post-txt{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.post-txt *{
+    margin-top:5px;
+}
+.post-txt h6{
+    font-size:14px;
+    color:#595959;
+    font-weight: lighter;
+}
+.post-info{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
