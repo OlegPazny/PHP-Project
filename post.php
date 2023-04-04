@@ -21,9 +21,7 @@
                 <h1><?php echo($brand);?> <?php echo($model)?>, <?php echo($year)?> года в г. <?php echo($city)?></h1>
                 <div class="post-btns">
                     <img src="img/post_copy.svg">
-                    <form action="" method="post">
-                        <button name="save" class="save"><img src="<?php echo($save_img)?>"></button>
-                    </form>
+                    <?php echo($save_img);?>
                 </div>
             </div>
             <div class="post-data">

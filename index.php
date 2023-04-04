@@ -18,28 +18,6 @@
         <div class="brands-section">
             <h1>52326 объявлений о<br />продаже авто</h1>
             <?php include "script/show_brand_names.php"?>
-            <!-- <div class="brands-block">
-                <ul class="brands-list">
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                </ul>
-                <ul class="brands-list">
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                    <li>Audi <span class=amount>532</span></li>
-                    <li>BMW <span class=amount>789</span></li>
-                </ul>
-            </div> -->
             <form action="brands.php">
                 <button class="brands-btn" type="submit">Все марки</button>
             </form>
