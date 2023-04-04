@@ -121,7 +121,7 @@
                     <h6>Город</h6>
                     <input type="text" name="city" id="city">
                 </div >
-                    <input class="photo-btn" type="file" name="img" value="Добавить фото"></input>
+                    <input class="photo-btn" type="file" name="img" accept=".jpg,.jpeg,.png" value="Добавить фото"></input>
                     <button class="submit-btn" type="submit">Добавить объявление</button>
                 </div>
                 <textarea name="description" class="description"></textarea>

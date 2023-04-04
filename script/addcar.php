@@ -26,15 +26,15 @@
         $error_fields[]='brand';
     }
 
-    if($model===''&&!is_int($model)){
+    if($model===''){
         $error_fields[]='model';
     }
     
-    if($year===''&&!is_int($year)){
+    if($year===''||!preg_match("/^19[0-9]{2}|20[01][0-9]|202[0-3]$/", $year)){
         $error_fields[]='year';
     }
 
-    if($price===''&&!is_int($price)){
+    if($price===''||!preg_match("/^[1-9]\d*$/", $price)){
         $error_fields[]='price';
     }
     
@@ -54,11 +54,11 @@
         $error_fields[]='gearbox';
     }
     
-    if($run===''&&!is_int($run)){
+    if($run===''||!preg_match("/^[1-9]\d*$/", $price)){
         $error_fields[]='run';
     }
 
-    if($city===''){
+    if($city===''||!preg_match("/^[А-Я][а-я]+$/", $city)){
         $error_fields[]='city';
     }
 
@@ -66,7 +66,8 @@
         $error_fields[]='img';
     }
 
-    if($description===''){
+    // if($description===''||!strlen($description)<4294967295||!preg_match("/^(?!\s*$)[-\/'.,\ 0-9а-яА-Я-zA-Z]+$/", $description)){
+    if($description===''||!strlen($description)>4294967295){
         $error_fields[]='description';
     }
 
