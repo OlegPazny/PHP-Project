@@ -27,11 +27,12 @@
     <section class="search">
         <div class="search-section">
             <h3>Поиск по параметрам</h3>
-            <form class="filters">
+            <form class="filters" action="search_results.php" method="post">
                 <div class="filters-row">
                     <div  class="filter-selection">
                         <h6>Марка</h6>
                         <select onchange="modal()" name="brand" id="brand">
+                            <option disabled selected value>Выбрать</option>
                             <?php
                                 foreach ($brand_arr as $brand)
                                 {
@@ -58,45 +59,25 @@
                     <div class="filter-selection">
                         <h6>Модель</h6>
                         <select id="model" name="model-menu" class="custom-select">
+                            <option disabled selected value>Выбрать</option>
                         </select> 
                     </div>
                     <div class="filter-selection double">
                         <h6>Год</h6>
-                        <select id="year">
-                            <option>1999</option>
-                            <option>2000</option>
-                            <option>2001</option>
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                        </select>
-                        <select id="year2">
-                            <option>1999</option>
-                            <option>2000</option>
-                            <option>2001</option>
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                        </select>
+                        <input placeholder="от" name="year_from" id="year" type="text">
+                        <input placeholder="до" name="year_to" id="year2">
                     </div>
                 </div>
                 <div class="filters-row">
                     <div class="filter-selection double">
                         <h6>Цена</h6>
-                        <input value="от" name="price_from" id="price">
-                        <input value="до" name="price_to" id="price2">
+                        <input placeholder="от" name="price_from" id="price">
+                        <input placeholder="до" name="price_to" id="price2">
                     </div>
                     <div class="filter-selection">
                         <h6>Кузов</h6>
-                        <select id="body">
+                        <select id="body" name="body">
+                            <option disabled selected value>Выбрать</option>
                             <?php
                                 foreach ($body_arr as $body)
                                 {
@@ -107,58 +88,57 @@
                     </div>
                     <div class="filter-selection">
                         <h6>Цвет</h6>
-                        <select id="color">
-                        <?php
-                            foreach ($color_arr as $color)
-                            {
-                                    echo("<option value='".$color."'>".$color."</option>");
-                            }
-                        ?>
+                        <select id="color" name="color">
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                                foreach ($color_arr as $color)
+                                {
+                                        echo("<option value='".$color."'>".$color."</option>");
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="filters-row">
                     <div class="filter-selection">
                         <h6>Дрыгатель</h6>
-                        <select id="engine">
-                        <?php
-                        foreach ($engine_arr as $engine)
-                        {
-                            echo("<option value='".$engine."'>".$engine."</option>");
-                        }
-                        ?>
+                        <select id="engine" name="engine">
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                                foreach ($engine_arr as $engine)
+                                {
+                                    echo("<option value='".$engine."'>".$engine."</option>");
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="filter-selection">
                         <h6>КПП</h6>
-                        <select id="gearbox">
-                        <?php
-                            foreach ($gearbox_arr as $gearbox)
-                            {
-                                    echo("<option value='".$gearbox."'>".$gearbox."</option>");
-                            }
-                        ?>
+                        <select id="gearbox" name="gearbox">
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                                foreach ($gearbox_arr as $gearbox)
+                                {
+                                        echo("<option value='".$gearbox."'>".$gearbox."</option>");
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="filter-selection double">
                         <h6>Пробег</h6>
-                        <input value="от" name="run_from" id="run">
-                        <input value="до" name="run_to" id="run2">
+                        <input placeholder="от" name="run_from" id="run">
+                        <input placeholder="до" name="run_to" id="run2">
                     </div>
                 </div>
                 <div class="filters-row">
                     <div class="check-section">
-                        <div class="check-elem">
-                            <input class="checkbox" type="checkbox" name="with_photo">
-                            <h6>С фото</h6>
-                        </div>
                         <div class="check-elem">
                             <input class="checkbox" type="checkbox" name="show_last">
                             <h6>Показать последние</h6>
                         </div>
                     </div>
                     <button class="filter-btn reset" type="button" onclick="clear_input()">Сбросить</button>
-                    <button class="filter-btn submit" type="submit">Показать 124 объявлений</button>
+                    <input class="filter-btn submit" type="submit" value="Показать 124 объявлений"></input>
                 </div>
             </form>
         </div>

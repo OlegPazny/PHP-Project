@@ -7,7 +7,7 @@
     $password="";
     $db=mysqli_connect($host, $user, $password, $database) or die("Ошибка ".mysqli_error($db));
 
-    
+    $_SESSION['page_id']="brands";
     $brands = mysqli_query($db, "SELECT * FROM `BRANDS`");
     $brands = mysqli_fetch_all($brands);
     echo "<div class='brands-container'>";
@@ -15,7 +15,6 @@
     foreach ($brands as $brand){
 
         echo 
-        //  /jsda/card.php&id=$brand[0]
             "<div class='brand-card' id='$brand[0]'> 
                 <a href='search_results.php?id=$brand[0]'><img src='$brand[2]'></a>
                 <p>$brand[1]</p>
