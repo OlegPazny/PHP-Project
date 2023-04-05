@@ -68,13 +68,13 @@
         }
 
         if(isset($price_from)){
-            $price_from=$price_from;
+            $price_from=$_POST['price_from'};
         }else{
             $price_from="";
         }
 
         if(isset($price_to)){
-            $price_to=$price_to;
+            $price_to=$_POST['price_to'];
         }else{
             $price_to="";
         }
@@ -86,31 +86,31 @@
         }
 
         if(isset($color)){
-            $color=$color;
+            $color=$_POST['color'];
         }else{
             $color="";
         }
 
         if(isset($engine)){
-            $engine=$engine;
+            $engine=$_POST['engine'];
         }else{
             $engine="";
         }
 
         if(isset($gearbox)){
-            $gearbox=$gearbox;
+            $gearbox=$_POST['gearbox'];
         }else{
             $gearbox="";
         }
 
         if(isset($run_from)){
-            $run_from=$run_from;
+            $run_from=$_POST['run_from'];
         }else{
             $run_from="";
         }
 
         if(isset($run_to)){
-            $run_to=$run_to;
+            $run_to=$_POST['run_to'];
         }else{
             $run_to="";
         }
