@@ -123,7 +123,11 @@
         //если все поля пустые
         if($brand==""&&$model==""&&$year_from==""&&$year_to==""&&$price_from==""&&$price_to==""&&$body==""&&$color==""&&$engine==""&&$gearbox==""&&$run_from==""&&$run_to=="")
         {
-            $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`;";
+            if($show_last==true){
+                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color` ORDER BY POST.Date DESC;";
+            }else{
+                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`;";
+            }
 
             $result = mysqli_query($db, $query) or die("Ошибка" . mysqli_error($db));
 
@@ -225,7 +229,11 @@
             $where_string=" WHERE ".$where_string;
 
             //запрос
-            $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`$where_string;";
+            if($show_last==true){
+                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`$where_string ORDER BY POST.Date DESC;";
+            }else{
+                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`$where_string;";
+            }
 
             $result = mysqli_query($db, $query) or die("Ошибка" . mysqli_error($db));
 
