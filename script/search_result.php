@@ -68,7 +68,7 @@
         }
 
         if(isset($price_from)){
-            $price_from=$_POST['price_from'};
+            $price_from=$_POST['price_from'];
         }else{
             $price_from="";
         }
@@ -85,19 +85,19 @@
             $body="";
         }
 
-        if(isset($color)){
+        if(isset($_POST['color'])){
             $color=$_POST['color'];
         }else{
             $color="";
         }
 
-        if(isset($engine)){
+        if(isset($_POST['engine'])){
             $engine=$_POST['engine'];
         }else{
             $engine="";
         }
 
-        if(isset($gearbox)){
+        if(isset($_POST['gearbox'])){
             $gearbox=$_POST['gearbox'];
         }else{
             $gearbox="";
@@ -227,6 +227,8 @@
             //генерация строки where
             $where_string=implode(" AND ", $where_arr);
             $where_string=" WHERE ".$where_string;
+
+            
 
             //запрос
             if($show_last==true){
