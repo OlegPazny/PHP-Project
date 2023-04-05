@@ -27,7 +27,7 @@
     <section class="search">
         <div class="search-section">
             <h3>Поиск по параметрам</h3>
-            <form class="filters" action="search_results.php" method="post">
+            <form class="filters" action="search_results.php" method="POST">
                 <div class="filters-row">
                     <div  class="filter-selection">
                         <h6>Марка</h6>
@@ -47,6 +47,7 @@
                                         url: "script/models.php?mark="+val,
                                         success: function(data){
                                             document.querySelector("#model").innerHTML = '';
+                                            document.querySelector('#model').innerHTML += `<option disabled selected value>Выбрать</option>`;
                                             JSON.parse(data).forEach(element => {
                                                 document.querySelector('#model').innerHTML += `<option value="${element}">${element}</option>`;
                                             });
