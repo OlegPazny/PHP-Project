@@ -37,10 +37,21 @@
                                 <h6>$rows[9] г., $rows[6], $rows[4], $rows[5], $rows[11] км</h6>
                                 </div>
                             </div>
+                            <form action='account.php' method='post'>
+                                <button type='submit' name='delete' value='$rows[1]' class='delete-my-car'>Удалить</button>
+                            </form>
                 </div>
             </a>";
         }
         echo $itemCards;
         echo "</div>";
+    }
+
+    if(isset($_POST['delete'])){
+        $id=mysqli_real_escape_string($db, $_POST['delete']);
+        $query=("DELETE FROM POST WHERE id=$id");
+        if(mysqli_query($db,$query)){
+            echo("Товар удален");
+        }
     }
 ?>

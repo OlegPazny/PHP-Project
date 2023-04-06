@@ -50,6 +50,12 @@ header{
     display: flex;
     flex-direction: column;
     width:420px;
+    margin-bottom:15px;
+    transition: 0.5s ease-in-out;
+}
+.post:hover{
+    background-color: #f5f5f5;
+    transition: 0.5s ease-in-out;
 }
 .post *{
     margin: 0;
