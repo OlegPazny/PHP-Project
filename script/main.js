@@ -135,6 +135,7 @@ $('.submit-btn').click(function(e){
                     console.log('косяк');
                     data.fields.forEach(function(field){
                         $(`input[name="${field}"]`).addClass('error');
+                        $(`select[name="${field}"]`).addClass('error');
                     });
                 }
                 $('.message').removeClass('none').text(data.message);

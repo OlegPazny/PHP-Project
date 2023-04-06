@@ -54,7 +54,7 @@
         $error_fields[]='gearbox';
     }
     
-    if($run===''||!preg_match("/^[1-9]\d*$/", $price)){
+    if($run===''||!preg_match("/^[1-9]\d*$/", $run)){
         $error_fields[]='run';
     }
 
