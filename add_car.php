@@ -18,7 +18,7 @@
     <section class="form-section">
         <div class="form-container">
             <h1>Новое объявление</h1>
-            <div class="clear" onclick="clear_input()">
+            <div class="clear" onclick="clear_input_add_car()">
                 <img src="img/bucket.svg">
                 <h5>Очистить все поля</h5>
             </div>
@@ -27,6 +27,7 @@
                     <div class="filter-selection">
                         <h6>Марка</h6>
                         <select onchange="modal()" id="brand" name="brand">
+                            <option disabled selected value>Выбрать</option>
                             <?php
                                 foreach ($brand_arr as $brand)
                                 {
@@ -41,6 +42,7 @@
                                     url: "script/models.php?mark="+val,
                                     success: function(data){
                                         document.querySelector("#model").innerHTML = '';
+                                        document.querySelector('#model').innerHTML += `<option disabled selected value>Выбрать</option>`;
                                         JSON.parse(data).forEach(element => {
                                             document.querySelector('#model').innerHTML += `<option value="${element}">${element}</option>`;
                                         });
@@ -53,6 +55,7 @@
                     <div class="filter-selection">
                         <h6>Модель</h6>
                         <select id="model" name="model" class="custom-select">
+                            <option disabled selected value>Выбрать</option>
                         </select> 
                     </div>
                     <div class="filter-selection">
@@ -68,6 +71,7 @@
                     <div class="filter-selection">
                         <h6>Кузов</h6>
                         <select name="body" id="body">
+                            <option disabled selected value>Выбрать</option>
                             <?php
                                 foreach ($body_arr as $body)
                                 {
@@ -79,12 +83,13 @@
                     <div class="filter-selection">
                         <h6>Цвет</h6>
                         <select name="color" id="color">
-                        <?php
-                            foreach ($color_arr as $color)
-                            {
-                                    echo("<option value='".$color."'>".$color."</option>");
-                            }
-                        ?>
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                                foreach ($color_arr as $color)
+                                {
+                                        echo("<option value='".$color."'>".$color."</option>");
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -92,23 +97,25 @@
                     <div class="filter-selection">
                         <h6>Дрыгатель</h6>
                         <select name="engine" id="engine">
-                        <?php
-                        foreach ($engine_arr as $engine)
-                        {
-                            echo("<option value='".$engine."'>".$engine."</option>");
-                        }
-                        ?>
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                            foreach ($engine_arr as $engine)
+                            {
+                                echo("<option value='".$engine."'>".$engine."</option>");
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="filter-selection">
                         <h6>КПП</h6>
                         <select name="gearbox" id="gearbox">
-                        <?php
-                            foreach ($gearbox_arr as $gearbox)
-                            {
-                                    echo("<option value='".$gearbox."'>".$gearbox."</option>");
-                            }
-                        ?>
+                            <option disabled selected value>Выбрать</option>
+                            <?php
+                                foreach ($gearbox_arr as $gearbox)
+                                {
+                                        echo("<option value='".$gearbox."'>".$gearbox."</option>");
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="filter-selection">
@@ -121,10 +128,10 @@
                     <h6>Город</h6>
                     <input type="text" name="city" id="city">
                 </div >
-                    <input class="photo-btn" type="file" name="img" accept=".jpg,.jpeg,.png" value="Добавить фото"></input>
+                    <input class="photo-btn" type="file" name="img" accept=".jpg,.jpeg,.png" value="Добавить фото" id="photo"></input>
                     <button class="submit-btn" type="submit">Добавить объявление</button>
                 </div>
-                <textarea name="description" class="description"></textarea>
+                <textarea name="description" class="description" id="description"></textarea>
             </form>
             <p class="message none">error</p>
         </div>
