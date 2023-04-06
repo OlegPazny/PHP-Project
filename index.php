@@ -27,6 +27,7 @@
     <section class="search">
         <div class="search-section">
             <h3>Поиск по параметрам</h3>
+            <?php $_SESSION['page_id']="filters";?>
             <form class="filters" action="search_results.php" method="POST">
                 <div class="filters-row">
                     <div  class="filter-selection">
@@ -149,7 +150,9 @@
         <h3>Последние объявления</h3>
         <div class="last-post-block">
             <?php include "script/car_card.php"?>
-            <input type="button" class="more-post-btn" value="Показать ещё">
+            <form action="search_results.php">
+                <input type="submit" class="more-post-btn" value="Показать ещё" name="show_more">
+            </form>
         </div>
 
     </section>

@@ -160,11 +160,13 @@ header{
     background-color: #f5f5f5;
     border:1px solid #bdbdbd;
     color:#767676;
+    cursor: pointer;
 }
 .submit{
     background-color: #00A368;
     border:1px solid #007D50;
     color:white;
+    cursor: pointer;
 }
 .check-elem{
     display: flex;
@@ -242,6 +244,10 @@ figure img{
     flex-direction: row;
     justify-content: space-between;
 }
+.last-post-block form{
+    display: flex;
+    justify-content: center;
+}
 .more-post-btn{
     height:45px;
     width:420px;
@@ -251,8 +257,13 @@ figure img{
     font-weight: bold;
     color:#767676;
     font-size: 24px;
-    align-self: center;
     margin-top:50px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+.more-post-btn:hover{
+    transition: 0.5s ease-in-out;
+    background-color: #d6d6d6;
 }
 
 /* ФУТЕР */

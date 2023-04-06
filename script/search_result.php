@@ -40,8 +40,6 @@
         }
     }else if($_SESSION['page_id']=="filters"){
         //достаем выбранное
-        $_SESSION['page_id']="filters";
-
 
         if(isset($_POST['brand'])){
             $brand=$_POST['brand'];
@@ -67,13 +65,13 @@
             $year_to="";
         }
 
-        if(isset($price_from)){
+        if(isset($_POST['price_from'])){
             $price_from=$_POST['price_from'];
         }else{
             $price_from="";
         }
 
-        if(isset($price_to)){
+        if(isset($_POST['price_to'])){
             $price_to=$_POST['price_to'];
         }else{
             $price_to="";
@@ -103,13 +101,13 @@
             $gearbox="";
         }
 
-        if(isset($run_from)){
+        if(isset($_POST['run_from'])){
             $run_from=$_POST['run_from'];
         }else{
             $run_from="";
         }
 
-        if(isset($run_to)){
+        if(isset($_POST['run_to'])){
             $run_to=$_POST['run_to'];
         }else{
             $run_to="";
@@ -126,7 +124,7 @@
             if($show_last==true){
                 $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color` ORDER BY POST.Date DESC;";
             }else{
-                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color`;";
+                $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color` ORDER BY POST.Date ASC;";
             }
 
             $result = mysqli_query($db, $query) or die("Ошибка" . mysqli_error($db));
@@ -218,7 +216,7 @@
                 array_push($where_arr,$run_str);
             }else if($run_from==""&&$run_to!=""){
                 $run_str="POST.Run<".$run_to;
-                array_push($where_arr,$price_str);
+                array_push($where_arr,$run_str);
             }else if($run_from!=""&&$run_to!=""){
                 $run_str="POST.Run BETWEEN ".$run_from." AND ".$run_to;
                 array_push($where_arr,$run_str);
@@ -265,5 +263,35 @@
             }
         }
     }
-    
+
+    if(isset($_POST['show_more'])){
+        $query = "SELECT DISTINCT POST.id, `Brand`, `Model`, `Engine`, `Body`, `Gearbox`, `Color`, `City`, `Year`, `Price`, `Run`, `Date`, `Photo` FROM `POST` INNER JOIN `BRANDS` ON `BRANDS`.`id`=`POST`.`ID_Brand` INNER JOIN `MODELS` ON `MODELS`.`id` =`POST`.`ID_Model` INNER JOIN `ENGINES` ON `ENGINES`.`id` =`POST`.`ID_Engine` INNER JOIN `BODIES` ON `BODIES`.`id` =`POST`.`ID_Body` INNER JOIN `GEARBOXES` ON `GEARBOXES`.`id` =`POST`.`ID_Gearbox` INNER JOIN `COLORS` ON `COLORS`.`id` =`POST`.`ID_Color` ORDER BY POST.Date DESC;";
+
+        $result = mysqli_query($db, $query) or die("Ошибка" . mysqli_error($db));
+
+        $itemCards= '';
+        if ($result) {
+            echo "<div class='post-container'>";
+            for ($i=0; $i < mysqli_num_rows($result); $i++) {
+                $rows = mysqli_fetch_row($result);
+                $itemCards .="
+                <a href='post.php?id=$rows[0]'>
+                    <div class='post'>
+                        <figure>
+                            <img src='$rows[12]'>
+                        </figure>
+                        <div class='post-info'>
+                            <div class='post-txt'>
+                                <h4>$rows[1] $rows[2]</h4>
+                                <h6>$rows[9]$</h6>
+                                <h6>$rows[8] г., $rows[5], $rows[3], $rows[4], $rows[10] км</h6>
+                            </div>
+                        </div>
+                    </div>
+                </a>";
+            }
+            echo $itemCards;
+            echo "</div>";
+        }
+    }
 ?>
