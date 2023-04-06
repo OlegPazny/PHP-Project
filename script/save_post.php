@@ -33,34 +33,23 @@
                 mysqli_query($db, $query);
             }
         //подгрузка цвета иконки в зависимости от бд
-            // $id=$_GET["id"];
-            // $owner=implode('', mysqli_fetch_assoc(mysqli_query($db, "SELECT ID_User FROM POST WHERE id='$id'")));
+            $id=$_GET["id"];
+            $owner=implode('', mysqli_fetch_assoc(mysqli_query($db, "SELECT ID_User FROM POST WHERE id='$id'")));
 
-            // if($user_id!=$owner){
-            //     if(in_array($id,$saved_arr)){
-            //         $save_img="
-            //             <form action='' method='post'>
-            //                 <button name='save' class='save'><img src='img/post_save_yellow.svg'></button>
-            //             </form>";
-            //     }else if(!in_array($id,$saved_arr)){
-            //         $save_img="
-            //             <form action='' method='post'>
-            //                 <button name='save' class='save'><img src='img/post_save.svg'></button>
-            //             </form>";
-            //     }
-            // }else{
-            //     $save_img="";
-            // }
-            if(in_array($id,$saved_arr)){
-                $save_img="
-                    <form action='' method='post'>
-                        <button name='save' class='save'><img src='img/post_save_yellow.svg'></button>
-                    </form>";
-            }else if(!in_array($id,$saved_arr)){
-                $save_img="
-                    <form action='' method='post'>
-                        <button name='save' class='save'><img src='img/post_save.svg'></button>
-                    </form>";
+            if($user_id!=$owner){
+                if(in_array($id,$saved_arr)){
+                    $save_img="
+                        <form action='' method='post'>
+                            <button name='save' class='save'><img src='img/post_save_yellow.svg'></button>
+                        </form>";
+                }else if(!in_array($id,$saved_arr)){
+                    $save_img="
+                        <form action='' method='post'>
+                            <button name='save' class='save'><img src='img/post_save.svg'></button>
+                        </form>";
+                }
+            }else{
+                $save_img="";
             }
     }else{
         $save_img="";
