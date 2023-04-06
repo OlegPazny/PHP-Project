@@ -30,23 +30,23 @@
     //валидация
     $error_fields=[];
 
-    if($login===''){
+    if($login===''||preg_match("/^[a-z0-9_-]{3,16}$/",$login)==0){
         $error_fields[]='login';
     }
 
-    if($name===''){
+    if($name===''||preg_match("/^[А-Я][-а-яА-Я]+$/",$name)==0){
         $error_fields[]='name';
     }
     
-    if($email==='' || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if($email==='' || !filter_var($email, FILTER_VALIDATE_EMAIL)||preg_match("/^[\w\.-]+@[a-z]+\.[a-z]+$/",$email)==0){
         $error_fields[]='email';
     }
 
-    if($number===''){
+    if($number===''||preg_match("/^((\+375)+([0-9]){9})$/",$number)==0){
         $error_fields[]='number';
     }
     
-    if($password===''){
+    if($password===''||preg_match("/^[a-zA-Z0-9]{8,}$/",$password)==0){
         $error_fields[]='password';
     }
     

@@ -13,11 +13,11 @@
     //валидация
     $error_fields=[];
 
-    if($login===''){
+    if($login===''||preg_match("/^[a-z0-9_-]{3,16}$/",$login)==0){
         $error_fields[]='login';
     }
 
-    if($password===''){
+    if($password===''||preg_match("/^[a-zA-Z0-9]{8,}$/",$password)==0){
         $error_fields[]='password';
     }
 

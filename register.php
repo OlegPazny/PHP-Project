@@ -14,6 +14,8 @@
     <title>reg</title>
     <link rel="stylesheet" type="text/css" href="style/register_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
 </head>
 <body>
     <?php include "header.php"?>
