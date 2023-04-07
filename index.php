@@ -143,6 +143,8 @@
                     <input class="filter-btn submit" type="submit" value="Показать 124 объявлений"></input>
                 </div>
             </form>
+            <p class="message none">error</p>
+            
         </div>
     </section>
 
@@ -157,6 +159,7 @@
 
     </section>
     <script src="script/clear_filter.js"></script>
+    <!-- <script src="script/main.js"></script> -->
     <?php include "footer.html"?>
 </body>
 

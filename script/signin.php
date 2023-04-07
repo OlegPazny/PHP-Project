@@ -17,7 +17,7 @@
         $error_fields[]='login';
     }
 
-    if($password===''||preg_match("/^[a-zA-Z0-9]{8,}$/",$password)==0){
+    if($password===''){
         $error_fields[]='password';
     }
 

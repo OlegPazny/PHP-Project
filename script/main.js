@@ -143,3 +143,59 @@ $('.submit-btn').click(function(e){
         }
     })
 });
+
+// фильтрация
+$('.filter-btn').click(function(e){
+    e.preventDefault();//не обновляет страницу при клике(отключение стандартного поведения)
+
+    $(`input`).removeClass('error');//очищение инпутов от класса error
+
+    // let brand=$('select[name="brand"]').val;
+    // let model=$('select[name="model-menu"]').val;
+    let year_from=$('input[name="year_from"]').val();
+    let year_to=$('input[name="year_to"]').val();
+    let price_from=$('input[name="price_from"]').val();
+    let price_to=$('input[name="price_to"]').val();
+    // let body=$('select[name="body"]').val;
+    // let color=$('select[name="color"]').val;
+    // let engine=$('select[name="engine"]').val;
+    // let gearbox=$('select[name="gearbox"]').val;
+    let run_from=$('input[name="run_from"]').val();
+    let run_to=$('input[name="run_to"]').val();
+
+    $.ajax({
+        url:'script/filter-validation.php',
+        type:'POST',
+        dataType:'json',
+        data:{
+            // brand:brand,
+            // model:model,
+            year_from:year_from,
+            year_to:year_to,
+            price_from:price_from,
+            price_to:price_to,
+            // body:body,
+            // color:color,
+            // engine:engine,
+            // gearbox:gearbox,
+            run_from:run_from,
+            run_to:run_to,
+
+        },
+        success:function(data){
+            if(data.status){
+                console.log('норм');
+                document.location.href="/search_results.php"
+            }else{
+                if(data.type===1){
+                    console.log('жопа');
+                    data.fields.forEach(function(field){
+                        $(`input[name="${field}"]`).addClass('error');
+                    });
+                }
+                $('.message').removeClass('none').text(data.message);
+            }
+        }
+    });
+    //return false;
+});

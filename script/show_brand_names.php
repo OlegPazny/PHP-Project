@@ -7,9 +7,11 @@
     $password="";
     $db=mysqli_connect($host, $user, $password, $database) or die("Ошибка ".mysqli_error($db));
 
-    
+    // $_SESSION['brands']="filters";
     $brands = mysqli_query($db, "SELECT `Brand`, count(POST.ID_Brand), `BRANDS`.`id` FROM BRANDS INNER JOIN POST ON POST.ID_Brand=BRANDS.id GROUP BY BRANDS.id ORDER BY `Brand`;
     ");
+
+    $_SESSION['page_id']="brand_list";
 
     $item='';
     echo "<div class='brands-block'>";

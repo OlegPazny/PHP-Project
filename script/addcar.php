@@ -58,7 +58,7 @@
         $error_fields[]='run';
     }
 
-    if($city===''||!preg_match("/^[А-Я][а-я]+$/", $city)){
+    if($city===''){
         $error_fields[]='city';
     }
 

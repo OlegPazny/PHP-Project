@@ -53,6 +53,14 @@ header{
     flex-direction: row;
     width:150px;
     justify-content: space-around;
+    cursor:pointer;
+}
+.clear h5{
+    transition:0.5s ease-in-out;
+}
+.clear h5:hover{
+    transition: 0.5s ease-in-out;
+    color:rgb(53, 53, 53)
 }
 .search{
     margin-left: 12%;
@@ -116,6 +124,11 @@ input{
     background-color: #00A368;
     border:1px solid #007D50;
     color:white;
+    transition: 0.5s ease-in-out;
+}
+.submit-btn:hover{
+    transition: 0.5s ease-in-out;
+    background-color: #00b673;
 }
 .description{
     width:500px;
@@ -130,6 +143,9 @@ input{
 }
 .error{
         border-bottom:1px solid red;
+}
+.photo-btn{
+    font-size: 15px;
 }
 /* ФУТЕР */
 .foo{
