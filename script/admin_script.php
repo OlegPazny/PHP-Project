@@ -34,9 +34,8 @@
                             <h6>$rows[9]$</h6>
                             <h6>$rows[8] г., $rows[5], $rows[3], $rows[4], $rows[10] км</h6>
                         </div>
-                        <img src='img/saved_big.svg'>
                         <form action='admin.php' method='post'>
-                            <input type='submit' name='delete' value='$rows[0]'>Удалить</input>
+                            <button type='submit' name='delete' value='$rows[0]' class='delete-my-car'>Удалить</button>
                         </form>
                     </div>
                 </div>";

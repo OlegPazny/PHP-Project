@@ -184,11 +184,9 @@ $('.filter-btn').click(function(e){
         },
         success:function(data){
             if(data.status){
-                console.log('норм');
                 document.location.href="/search_results.php"
             }else{
                 if(data.type===1){
-                    console.log('жопа');
                     data.fields.forEach(function(field){
                         $(`input[name="${field}"]`).addClass('error');
                     });

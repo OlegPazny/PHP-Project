@@ -161,12 +161,22 @@ header{
     border:1px solid #bdbdbd;
     color:#767676;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.reset:hover{
+    transition: 0.5s ease-in-out;
+    background-color: #c5c5c5;
 }
 .submit{
     background-color: #00A368;
     border:1px solid #007D50;
     color:white;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.submit:hover{
+    transition: 0.5s ease-in-out;
+    background-color:#00d285
 }
 .check-elem{
     display: flex;

@@ -14,9 +14,10 @@
 <body>
     <?php include "script/filters.php";?>
     <?php include "header.php";?>
+    <?php include "script/countcars.php"?>
     <section class="brands">
         <div class="brands-section">
-            <h1>52326 объявлений о<br />продаже авто</h1>
+            <h1><?php echo($count)?> объявлений о<br />продаже авто</h1>
             <?php include "script/show_brand_names.php"?>
             <form action="brands.php">
                 <button class="brands-btn" type="submit">Все марки</button>
@@ -140,7 +141,7 @@
                         </div>
                     </div>
                     <button class="filter-btn reset" type="button" onclick="clear_input()">Сбросить</button>
-                    <input class="filter-btn submit" type="submit" value="Показать 124 объявлений"></input>
+                    <input class="filter-btn submit" type="submit" value="Показать"></input>
                 </div>
             </form>
             <p class="message none">error</p>

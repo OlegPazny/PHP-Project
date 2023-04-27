@@ -23,7 +23,13 @@
             </a>
         </div>
         <div class="account">
-            <a href="account.php#anchor"><img src="img/saved_small.svg"></a>
+            <?php
+                if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+                    echo("<a href='account.php#anchor'><img src='img/saved_small.svg'></a>");
+                }else{
+                    echo('');
+                }
+            ?>
             <a href=<?php echo($header_btn)?>>
                 <h4>
                     <?php
@@ -32,7 +38,7 @@
                         }else{
                             echo('Вход/Регистрация');
                         }
-                        ?>
+                    ?>
                 </h4>
             </a>
             <a href=<?php echo($header_btn)?>><img src="img/account.svg"></a>

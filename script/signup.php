@@ -34,7 +34,7 @@
         $error_fields[]='login';
     }
 
-    if($name===''||preg_match("/^[А-Я][-а-яА-Я]+$/",$name)==0){
+    if($name===''){
         $error_fields[]='name';
     }
     
